@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="CatálogoDeProductos.Views.ConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CatálogoDeProductos.Views"
+             xmlns:vm="clr-namespace:CatálogoDeProductos.ViewModel"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:ConfigurationViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="150"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Idiomas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button x:Name="Español" Content="Español" HorizontalAlignment="Right" Margin="5" Command="{Binding SpanishCommandCommand}"></Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button x:Name="Ingles" Content="Ingles" Margin="5" Command="{Binding EnglishCommandCommand}"></Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
