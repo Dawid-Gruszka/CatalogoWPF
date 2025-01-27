@@ -48,14 +48,14 @@ namespace CatálogoDeProductos
             // Codigo para agregar datos dumi a la base de datos
 
 
-            //           using (var scope = serviceProvider.CreateScope())
-            //            {
-            //   var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-            //  dbContext.Database.EnsureCreated();
-            //  dbContext.Category.Add(new Categories { Name = "categoria" });
-            //  dbContext.Products.Add(new Product { Name = "Cosas", Description = "Descripcion", CategoryId = 1});
-            //  dbContext.SaveChanges();
-            //  }
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                dbContext.Database.EnsureCreated();
+                //dbContext.Category.Add(new Categories { Name = "categoria" });
+                //dbContext.Products.Add(new Product { Name = "Cosas", Description = "Descripcion", CategoryId = 1 });
+                dbContext.SaveChanges();
+            }
 
 
 

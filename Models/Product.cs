@@ -9,12 +9,25 @@
         public Categories? Category { get; set; }
         public Product() { }
 
-        public Product(int id, string? name, string? description, Categories? category)
+        public Product(string name, string description, Categories category)
         {
-            Id = id;
-            Name = name;
-            Description = description;
-            Category = category;
+            this.Name = name;
+            this.Description = description;
+            this.Category = category;
+        }
+
+        public Product(string name,string description)
+        {
+            this.Name = name;
+            this.Description = description;
+        }
+
+        public Product(int id,string name,string description,Categories category)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Description = description;
+            this.Category = category;
         }
     }
 }

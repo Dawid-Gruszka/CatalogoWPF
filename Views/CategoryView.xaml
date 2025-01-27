@@ -10,11 +10,72 @@
              d:DataContext="{d:DesignInstance vm:CategoryViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="5">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Category}" HeadersVisibility="Column">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Margin="5" AutoGenerateColumns="False" ItemsSource="{Binding Category}" HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="{x:Static p:Resources.NameList}" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Categoria" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35" FontWeight="Bold"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="50"></RowDefinition>
+                        <RowDefinition MaxHeight="75"></RowDefinition>
+                        <RowDefinition MaxHeight="75"></RowDefinition>
+                        <RowDefinition MaxHeight="65"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Añadir Categoria" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Nombre:" FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBox Text="{Binding CategoryName}" Margin="25,0,25,0" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="ID:" FontSize="23" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBox Text="{Binding CategoryId}" Margin="25,3,25,0"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="170"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Añadir Producto" HorizontalAlignment="Center" Command="{Binding AddCategoryCommandCommand}"/>
+                        <Button Grid.Column="1" Content="Editar" HorizontalAlignment="Center" Command="{Binding EditCategoryCommandCommand}"></Button>
+                        <Button Grid.Column="2" Content="Borrar" HorizontalAlignment="Center" Command="{Binding DeleteCategoryCommandCommand}"></Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
